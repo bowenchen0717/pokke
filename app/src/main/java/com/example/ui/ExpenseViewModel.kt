@@ -429,7 +429,7 @@ class ExpenseViewModel(application: Application) : AndroidViewModel(application)
                 return@launch
             }
             val jsonText = repository.generateJsonBackup(transactions)
-            repository.shareTextContent(context, "Pokke記帳 完整 JSON 備份檔", jsonText)
+            repository.shareTextContent(context, "簡單愛記帳 完整 JSON 備份檔", jsonText)
         }
     }
 
