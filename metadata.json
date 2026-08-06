@@ -1,0 +1,7 @@
+{
+  "name": "簡單愛記帳",
+  "description": "時尚年輕人的個人簡單日記帳，支援每日開銷分類、餘額統計、圖表視覺化 trend、CSV報表匯出與JSON資料備份 restore，以及色彩鮮豔的深色模式主題。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

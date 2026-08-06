@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>應用程式使用教學 (User Guide) - 簡單愛記帳 (Pokke Accounting)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --emerald: #10b981;
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding: 0;
+            margin: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+            border-bottom: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem 2rem 1.5rem;
+            text-align: center;
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .app-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 0.35rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #67e8f9, #a5b4fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.75rem;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .nav-btn {
+            background: var(--card-bg);
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+            padding: 0.6rem 1.4rem;
+            border-radius: 0.75rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn.active, .nav-btn:hover {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+            box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem 4rem 1.5rem;
+        }
+
+        .content-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .toc-box {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .toc-box h3 {
+            color: #a5b4fc;
+            margin-top: 0;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .toc-box ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+
+        .toc-box li {
+            margin-bottom: 0.4rem;
+        }
+
+        .toc-box a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .toc-box a:hover {
+            text-decoration: underline;
+        }
+
+        h2 {
+            color: #a5b4fc;
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #67e8f9;
+            font-size: 1.15rem;
+            margin-top: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p, ul, ol {
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+            font-size: 0.98rem;
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        strong {
+            color: #f8fafc;
+        }
+
+        code {
+            background: #0f172a;
+            color: #38bdf8;
+            padding: 0.2rem 0.45rem;
+            border-radius: 0.25rem;
+            font-size: 0.9em;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .feature-item {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+        }
+
+        .feature-item h4 {
+            color: #f8fafc;
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .faq-card {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .faq-card h4 {
+            color: #67e8f9;
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <span class="app-badge">官方使用說明手冊</span>
+            <h1>簡單愛記帳 (Pokke Accounting)</h1>
+            <p class="subtitle">完整應用程式使用教學與指南規範</p>
+            
+            <nav>
+                <a href="index.html" class="nav-btn">🏠 首頁 (Home)</a>
+                <a href="privacy.html" class="nav-btn">🔒 隱私權政策 (Privacy)</a>
+                <a href="user_guide.html" class="nav-btn active">📖 使用教學 (User Guide)</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article class="content-card">
+            <p>歡迎使用 <strong>簡單愛記帳 (Pokke Accounting)</strong>！本指南旨在幫助您快速上手這款時尚、輕量且功能強大的個人財務記帳工具。</p>
+
+            <div class="toc-box">
+                <h3>📌 目錄 (Table of Contents)</h3>
+                <ul>
+                    <li><a href="#sec-1">1. 核心特色介紹</a></li>
+                    <li><a href="#sec-2">2. 快速上手指南 (新增與編輯記帳)</a></li>
+                    <li><a href="#sec-3">3. 進階功能教學 (篩選、統計與分類)</a></li>
+                    <li><a href="#sec-4">4. 資料備份與安全匯出 (CSV & JSON)</a></li>
+                    <li><a href="#sec-5">5. Google Play 線上自動更新</a></li>
+                    <li><a href="#sec-6">6. 常見問題與支援 (FAQ)</a></li>
+                </ul>
+            </div>
+
+            <h2 id="sec-1">1. 核心特色介紹</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h4>🎨 時尚動態主題</h4>
+                    <p>支援深紫與翡翠綠時尚漸層主題，隨心切換明亮與深色模式。</p>
+                </div>
+                <div class="feature-item">
+                    <h4>⚡ 極速新增記帳</h4>
+                    <p>直覺數字鍵盤與智慧類別選擇，3 秒內完成一筆開銷紀錄。</p>
+                </div>
+                <div class="feature-item">
+                    <h4>📊 多維圖表分析</h4>
+                    <p>直觀長條圖與比例圓餅圖，即時掌握每週與每月消費走向。</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🔒 100% 本地安全</h4>
+                    <p>基於 Android Room 官方資料庫架構，資料完全儲存於手機本地。</p>
+                </div>
+            </div>
+
+            <h2 id="sec-2">2. 快速上手指南</h2>
+
+            <h3>2.1 新增第一筆記帳</h3>
+            <ol>
+                <li>開啟應用程式，點擊主畫面右下角的 <strong>「＋」浮動按鈕 (FAB)</strong>。</li>
+                <li>在彈出的新增視窗中：
+                    <ul>
+                        <li>輸入交易 <strong>金額</strong>。</li>
+                        <li>選擇 <strong>交易類型</strong>（支出 / 收入）。</li>
+                        <li>點選對應的 <strong>消費類別</strong>（例如：餐飲、交通、購物、娛樂等）。</li>
+                        <li>選擇使用的 <strong>支付方式</strong>（如：現金、信用卡、LINE Pay）。</li>
+                        <li>填寫可選的 <strong>備註</strong>（如：午餐便當）。</li>
+                    </ul>
+                </li>
+                <li>點擊 <strong>「儲存記帳」</strong>，紀錄即刻更新至首頁與統計圖表中。</li>
+            </ol>
+
+            <h3>2.2 編輯與刪除紀錄</h3>
+            <ul>
+                <li><strong>編輯紀錄</strong>：在交易列表中點擊任意一筆項目，即可進入編輯頁面修改內容並儲存。</li>
+                <li><strong>刪除紀錄</strong>：在交易項目上點擊垃圾桶圖示，即可確認刪除該筆帳務。</li>
+            </ul>
+
+            <h2 id="sec-3">3. 進階功能教學</h2>
+
+            <h3>3.1 視圖篩選與分類統計</h3>
+            <ul>
+                <li><strong>分類過濾</strong>：點擊首頁頂部的分類標籤，即可快速篩選單一類別（如「僅顯示餐飲」）的歷史紀錄。</li>
+                <li><strong>日期範圍搜尋</strong>：支援按日、週、月切換時間區間，精準比對不同時期的財務狀況。</li>
+            </ul>
+
+            <h3>3.2 每週趨勢與圖表分析</h3>
+            <ul>
+                <li>切換至 <strong>「分析 (Analytics)」</strong> 頁籤。</li>
+                <li>透過高對比視覺長條圖檢視近七日的開銷起伏，快速發現高額消費日。</li>
+                <li>檢視分類圓餅圖，了解主要開銷佔比，協助擬定合理的每月預算目標。</li>
+            </ul>
+
+            <h3>3.3 支付方式與自訂分類管理</h3>
+            <ul>
+                <li>前往 <strong>「設定 (Settings)」</strong> -> <strong>「類別與支付方式」</strong>。</li>
+                <li>您可根據個人習慣新增專屬分類（如：寵物、訂閱服務），並為其設定圖示與代表顏色。</li>
+            </ul>
+
+            <h2 id="sec-4">4. 資料備份與安全匯出</h2>
+
+            <h3>4.1 匯出 CSV 報表</h3>
+            <ol>
+                <li>進入 <strong>「設定」</strong> 頁面，找到 <strong>「資料管理」</strong> 區塊。</li>
+                <li>點擊 <strong>「匯出 CSV 財務報表」</strong>。</li>
+                <li>選擇儲存位置，即可產生格式規範的 <code>.csv</code> 檔案，方便使用 Excel 或 Google 試算表做二次統計與歸檔。</li>
+            </ol>
+
+            <h3>4.2 JSON 資料庫完整備份與還原</h3>
+            <ul>
+                <li><strong>完整備份</strong>：點擊 <strong>「建立 JSON 資料庫備份」</strong>，系統將打包您所有的交易、分類與個人設定。</li>
+                <li><strong>資料還原</strong>：換手機或重裝 App 時，點擊 <strong>「還原 JSON 備份」</strong> 並選取舊有備份檔，即可秒級復原所有帳務。</li>
+            </ul>
+
+            <h2 id="sec-5">5. Google Play 線上自動更新</h2>
+            <p>本應用程式已整合 <strong>Google Play 官方 In-App Update API</strong>：</p>
+            <ul>
+                <li>前往 <strong>「設定」</strong> -> <strong>「檢查軟體更新」</strong>。</li>
+                <li>系統將自動連線 Google Play 商店檢查是否有最新修復或新功能發布。</li>
+                <li>發現新版本時，點擊 <strong>「從 Google Play 下載更新」</strong> 即可於應用程式內流暢完成下載與更新安裝！</li>
+            </ul>
+
+            <h2 id="sec-6">6. 常見問題與支援 (FAQ)</h2>
+            <div class="faq-card">
+                <h4>Q: 記帳資料會上傳到雲端伺服器嗎？</h4>
+                <p>A: 不會。所有記帳數據均儲存於您手機的本地 Room 資料庫中，極大化保護您的個人財務隱私。</p>
+            </div>
+            <div class="faq-card">
+                <h4>Q: 如何更換手機時轉移資料？</h4>
+                <p>A: 請在舊手機上點擊「匯出 JSON 備份檔」並傳送至新手機，於新手機安裝「簡單愛記帳」後選擇「還原 JSON 備份」即可。</p>
+            </div>
+            <div class="faq-card">
+                <h4>Q: 如果遇到問題該如何回報？</h4>
+                <p>A: 歡迎寄信至本團隊客服信箱 <code>bowenchen0717@gmail.com</code>，我們將儘速為您服務！</p>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 簡單愛記帳 (Pokke Accounting). All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
